@@ -7,28 +7,28 @@ import { CustomTable } from './Components/table/table.jsx'
 import { CustomImage } from './Components/image/image.jsx'
 import { CustomButton } from './Components/button/button.jsx'
 import data from './data/data.js'
-
+import CustomNav from './Components/bootstrap/bootstrap.jsx'
+import CustomCarousel from './Components/bootstrap/carousel.jsx'
+import CustomCard from './Components/bootstrap/card.jsx'
+import Footer from './Components/bootstrap/footer.jsx'
+import { Input } from './Components/input/input.jsx'
+import './App.css'
 const App=()=>{
 return (
- < >
-    {
-      data.map( (eachItem,id)=>{
-        return(
-          <div key={id}>
-            <MainHeading heading={eachItem.name} />
-            <CustomImage source={eachItem.image} ></CustomImage>
-            <SubHeading heading="Ingredients"></SubHeading>
-            <CustomList list={eachItem.ingredients}></CustomList>
+  <>
+  <CustomNav></CustomNav>
+  <CustomCarousel></CustomCarousel>
+  <div className='myCard'>
+  <CustomCard></CustomCard>
+  </div>
 
-            <SubHeading heading="Instructions"></SubHeading>
-            <CustomList list={eachItem.instructions}></CustomList>
-            <CustomButton text='Start Preparation ' bgColor='yellow'></CustomButton>
+  <Footer></Footer>
 
-          </div>
-        )
-      })
-    }
- </>
+  <Input></Input>
+  
+  
+  </>
+
 )
   // const arr=[
   //   {
