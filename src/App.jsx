@@ -5,26 +5,31 @@ import Image from './Components/image/image.jsx'
 import { MainHeading,SubHeading } from './Components/heading/headings.jsx'
 import { CustomTable } from './Components/table/table.jsx'
 import { CustomImage } from './Components/image/image.jsx'
-import { CustomButton } from './Components/button/button.jsx'
+//import { CustomButton } from './Components/button/button.jsx'
 import data from './data/data.js'
 import CustomNav from './Components/bootstrap/bootstrap.jsx'
 import CustomCarousel from './Components/bootstrap/carousel.jsx'
 import CustomCard from './Components/bootstrap/card.jsx'
 import Footer from './Components/bootstrap/footer.jsx'
-import { Input } from './Components/input/input.jsx'
+import YoutubeButon from './Components/class/subscribe.jsx'
+import { CustomButton } from '@Button'
 import './App.css'
+//git push --set-upstream origin aug-21 
+
 const App=()=>{
 return (
   <>
-  <CustomNav></CustomNav>
+<YoutubeButon></YoutubeButon>
+{/* <CustomButton></CustomButton> */}
+
+  {/* <CustomNav></CustomNav>
   <CustomCarousel></CustomCarousel>
   <div className='myCard'>
   <CustomCard></CustomCard>
   </div>
 
-  <Footer></Footer>
+  <Footer></Footer> */}
 
-  <Input></Input>
   
   
   </>
