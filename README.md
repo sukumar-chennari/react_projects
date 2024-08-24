@@ -1,5 +1,2 @@
-working with fetch and axios 
-and working with filter data based on categories
-
-
-axios folder 
+taks is to fetch data and keep it in table 
+add bulb to the cards and make counter 

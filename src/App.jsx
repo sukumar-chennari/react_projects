@@ -18,10 +18,13 @@ import './App.css'
 
 import { Recipe } from './Components/axios/axiosfetch.jsx'
 import { FakeStore } from './Components/axios/fakestore.jsx'
+
+import { CustomTableFetch } from './Components/axios/tablefetch.jsx'
 const App=()=>{
 return (
   // <Recipe></Recipe>
-  <FakeStore></FakeStore>
+  // <FakeStore></FakeStore>
+  <CustomTableFetch></CustomTableFetch>
 )
 //   <>
 // <YoutubeButon></YoutubeButon>
