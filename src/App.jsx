@@ -16,70 +16,28 @@ import YoutubeButon from './Components/class/subscribe.jsx'
 import './App.css'
 //git push --set-upstream origin aug-21 
 
+import { Recipe } from './Components/axios/axiosfetch.jsx'
+import { FakeStore } from './Components/axios/fakestore.jsx'
 const App=()=>{
 return (
-  <>
-<YoutubeButon></YoutubeButon>
-{/* <CustomButton></CustomButton>  */}
-
-   <CustomNav></CustomNav>
-  <CustomCarousel></CustomCarousel>
-  <div className='myCard'>
-  <CustomCard data={data}></CustomCard>
-  </div>
-
-  <Footer></Footer>
-
-  
-  
-  </>
-
+  // <Recipe></Recipe>
+  <FakeStore></FakeStore>
 )
-  // const arr=[
-  //   {
-  //     "source":"https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-  //     "alternateText":'bag',
-  //     "width":100,
-  //     "height":200
-  //   },
-  //   {
-  //     "source":"https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-  //     "alternateText":'bag',
-  //     "width":100,
-  //     "height":200
-  //   },
-  //   {
-  //     "source":"https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-  //     "alternateText":'bag',
-  //     "width":200,
-  //     "height":200
-  //   },
-  //   {
-  //     "source":"https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-  //     "alternateText":'bag',
-  //     "width":100,
-  //     "height":200
-  //   }
-  // ]
-  // return (
-  //   <div>
-  //     {/* <MainHeading></MainHeading>
-  //     <h1>Hello World</h1>
-  //     <CustomList></CustomList>
-  //     <CustomOrderedList></CustomOrderedList>
-  //     <Image></Image>
-  //     <SubHeading/>
-  //     <CustomTable></CustomTable> */}
-  //     {
-  //     arr.map(eachItem=>{
-  //       return <Image1 source={eachItem.source} alternateText={eachItem.alternateText} height={eachItem.height} width={eachItem.width}/>
-  //     })
-  //     }
+//   <>
+// <YoutubeButon></YoutubeButon>
+// {/* <CustomButton></CustomButton>  */}
 
-  //     <CustomButton text='login' onPress={()=>{}} bgColor='yellow'></CustomButton>
-  //     <CustomButton text='submit' onPress={()=>{}} ></CustomButton>
-  //   </div>
-  // )
+//    <CustomNav></CustomNav>
+//   <CustomCarousel></CustomCarousel>
+//   <div className='myCard'>
+//   <CustomCard data={data}></CustomCard>
+//   </div>
+
+//   <Footer></Footer>
+
+  
+  
+//   </>
 }
 
 export default App

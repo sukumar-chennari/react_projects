@@ -1,3 +1,5 @@
-created a counter  and youtube subscribe
+working with fetch and axios 
+and working with filter data based on categories
 
-added add card and delete card
+
+axios folder 
