@@ -14,10 +14,12 @@ class FakeStore extends Component{
     state={
         items:[],
         allItems:[],
-        loader:true
+        loader:true,
+        category:[]
     }
     componentDidMount(){
-        this.fetchData()
+        this.fetchData(),
+        this.fetchCatogories()
     }
 
     fetchData=async ()=>{
@@ -26,44 +28,47 @@ class FakeStore extends Component{
             this.setState({
                 items:data,
                 allItems:data,
-                loader:false
+                loader:false,
+                
             })
         }
     }
 
-    mens = () => {
+    fetchCatogories=async ( eac)=>{
+        const {data}=await axios.get("https://fakestoreapi.com/products/categories")
+
         this.setState({
-            items: this.state.items.filter(item => item.category === "men's clothing")
-        });
+            category:data
+        })
     }
-    
-    electronics = () => {
-        this.setState({
-            items: this.state.items.filter(item => item.category === "electronics")
-        });
+
+    filterData= async (eachCategory)=>{
+        if(this.state.category.includes(eachCategory)){
+            const {data}=await axios.get(`https://fakestoreapi.com/products/category/${eachCategory}`)
+            this.setState({
+                items:data
+            })
+        }
+        else{
+            this.setState({
+                items:this.state.allItems
+            })
+        }
     }
-    
-    womens = () => {
-        this.setState({
-            items: this.state.items.filter(item => item.category === "women's clothing")
-        });
-    }
-    
-    jewelery = () => {
-        this.setState({
-            items: this.state.items.filter(item => item.category === "jewelery")
-        });
-    }
+
+ 
     render(){
         return (
             <>
             {
                 this.state.loader?<SquareLoader></SquareLoader>:<>
                     <div style={{textAlign:'center', display:'flex', justifyContent:"center"}}>
-                        <button onClick={this.mens}>Men's</button>
-                        <button onClick={this.womens}>Ladies</button>
-                        <button onClick={this.electronics}>Electronics</button>
-                        <button onClick={this.jewelery}>Jewelery</button>
+                        {
+                            this.state.category.map(eachCategory=>{
+                                return (<button onClick={ ()=>{this.filterData(eachCategory)}}>{eachCategory}</button>)
+                            })
+                        }
+                        
                     </div>
                     <div style={{display:'flex' , width:'100%' , flexWrap:'wrap', justifyContent:"space-evenly"}}>
 
