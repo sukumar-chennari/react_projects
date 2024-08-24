@@ -15,20 +15,24 @@ import YoutubeButon from './Components/class/subscribe.jsx'
 //import { CustomButton } from '@Button'
 import './App.css'
 //git push --set-upstream origin aug-21 
-
+import { Converter } from './Components/converter/converter.jsx'
 const App=()=>{
 return (
   <>
 <YoutubeButon></YoutubeButon>
 {/* <CustomButton></CustomButton>  */}
+<div>
+<Converter> </Converter>
+</div>
 
-   <CustomNav></CustomNav>
+
+   {/* <CustomNav></CustomNav>
   <CustomCarousel></CustomCarousel>
   <div className='myCard'>
   <CustomCard data={data}></CustomCard>
   </div>
 
-  <Footer></Footer>
+  <Footer></Footer> */}
 
   
   
