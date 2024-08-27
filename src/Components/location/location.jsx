@@ -92,8 +92,9 @@ class GetLocation extends Component {
                 <div style={{height:'100vh',width:'100', textAlign:'center', backgroundImage:`url(${this.state.imageAddress})`, backgroundSize:'cover', backgroundRepeat:'no-repeat'}}>
                 {Object.keys(weatherData).length > 0 && weatherData.main ? (
                     <div>
-                       
+                      
                         <h3>Weather Information:</h3>
+                        <p>{`Area: ${(weatherData.name)}`}</p>
                         <p>{`Temperature: ${(weatherData.main.temp - 273.15).toFixed(2)} °C`}</p>
                         <p>{`Weather: ${weatherData.weather[0].description}`}</p>
                         <p>{`Humidity: ${weatherData.main.humidity}%`}</p>
