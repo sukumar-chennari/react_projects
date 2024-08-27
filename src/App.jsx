@@ -16,16 +16,19 @@ import YoutubeButon from './Components/class/subscribe.jsx'
 import './App.css'
 //git push --set-upstream origin aug-21 
 
-import { Recipe } from './Components/axios/axiosfetch.jsx'
-import { FakeStore } from './Components/axios/fakestore.jsx'
+import { Recipe } from './Components/Axios/axiosfetch.jsx'
+import { FakeStore } from './Components/Axios/fakestore.jsx'
 
-import { CustomTableFetch } from './Components/axios/tablefetch.jsx'
+import { CustomTableFetch } from './Components/Axios/tablefetch.jsx'
+import GetLocation from './Components/location/location.jsx'
 const App=()=>{
 return (
-  // <Recipe></Recipe>
-  // <FakeStore></FakeStore>
-  <CustomTableFetch></CustomTableFetch>
+  <GetLocation></GetLocation>
 )
+//   <Recipe></Recipe>
+//   <FakeStore></FakeStore>
+//   <CustomTableFetch></CustomTableFetch>
+
 //   <>
 // <YoutubeButon></YoutubeButon>
 // {/* <CustomButton></CustomButton>  */}

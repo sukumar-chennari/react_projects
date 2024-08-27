@@ -4,7 +4,7 @@ import axios from "axios";
 import Table from 'react-bootstrap/Table';
 import { CustomImage } from "../image/image";
 
-class CustomTableFetch extends Component {
+export class CustomTableFetch extends Component {
     state = {
         items: [],
         loader: true,
@@ -98,5 +98,3 @@ class CustomTableFetch extends Component {
         );
     }
 }
-
-export { CustomTableFetch };

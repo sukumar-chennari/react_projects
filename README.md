@@ -1,2 +1,6 @@
-taks is to fetch data and keep it in table 
-add bulb to the cards and make counter 
+get location details using api 
+
+
+3fbfee0add6f67c23b4e7b25fd590df6
+
+https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid=3fbfee0add6f67c23b4e7b25fd590df6
