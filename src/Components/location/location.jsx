@@ -8,7 +8,8 @@ class GetLocation extends Component {
             lat: null,
             lon: null,
             error: null,
-            weatherData: {}, // Initialized as an empty object
+            weatherData: {},
+            imageAddress:'' // Initialized as an empty object
         };
     }
 
@@ -17,13 +18,14 @@ class GetLocation extends Component {
             let { data } = await axios.get(
                 `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=3fbfee0add6f67c23b4e7b25fd590df6`
             );
-            console.log("API Response:", data); // Log the full API response
+            //console.log("API Response:", data); // Log the full API response
             this.setState(
                 {
                     weatherData: data, // Update the state with API response
                 },
                 () => {
-                    console.log("Updated State:", this.state.weatherData); // Log updated state
+                    // Call updateBackgroundImage after the state is updated
+                    this.imageURL(this.state.weatherData.main.temp - 273.15);
                 }
             );
         } catch (error) {
@@ -33,6 +35,23 @@ class GetLocation extends Component {
             });
         }
     };
+
+    
+    imageURL=(temp)=>{
+        let image=''
+        if(Math.floor(temp)>=24){
+            image="https://img.freepik.com/free-vector/beach-background-with-smiling-sun_23-2147635239.jpg?size=338&ext=jpg&ga=GA1.1.553209589.1714089600&semt=ais"
+        }
+
+        else if(Math.floor(temp)>10 && Math.floor(temp)<24){
+            return ()=>{this.myURL("https://www.shutterstock.com/image-photo/striking-duality-single-tree-illustrates-600nw-2431290473.jpg")}
+        }
+
+        else{
+            return ()=>{ this.myURL("https://www.shutterstock.com/image-photo/ice-podium-mockup-display-presentation-600nw-1952562100.jpg")}
+        }
+        this.setState({imageAddress: image})
+    }
 
     componentDidMount() {
         if ("geolocation" in navigator) {
@@ -70,8 +89,10 @@ class GetLocation extends Component {
                 <h1>{`Lat: ${lat}`}</h1>
                 <h2>{`Long: ${lon}`}</h2>
 
+                <div style={{height:'100vh',width:'100', textAlign:'center', backgroundImage:`url(${this.state.imageAddress})`, backgroundSize:'cover', backgroundRepeat:'no-repeat'}}>
                 {Object.keys(weatherData).length > 0 && weatherData.main ? (
                     <div>
+                       
                         <h3>Weather Information:</h3>
                         <p>{`Temperature: ${(weatherData.main.temp - 273.15).toFixed(2)} °C`}</p>
                         <p>{`Weather: ${weatherData.weather[0].description}`}</p>
@@ -80,6 +101,8 @@ class GetLocation extends Component {
                 ) : (
                     <h3>No weather data available yet.</h3>
                 )}
+                </div>
+                
             </>
         ) : (
             <h1>Getting the location data...</h1>
