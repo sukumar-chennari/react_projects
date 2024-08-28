@@ -1,2 +1,4 @@
-created pure component  with child and parent jsx files
-task is to add see more and see less button to cards in components/axiosfecth file
+Hooks tasks in folder components/hooks
+created counter
+todo list to add,delete and update the cards
+display the even/odd button on click 
