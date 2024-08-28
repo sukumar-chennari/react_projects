@@ -6,13 +6,12 @@ import './App.css'
 
 import { Recipe } from './Components/Axios/axiosfetch.jsx'
 import { FakeStore } from './Components/Axios/fakestore.jsx'
-
-import { CustomTableFetch } from './Components/Axios/tablefetch.jsx'
-import { Parent } from './Components/purecomponents/parent.jsx'
+import DisplayCards  from './Components/displayCards/displaycards.jsx'
 const App=()=>{
 return (
   <>
-    <Recipe></Recipe>
+    {/* <Recipe></Recipe> */}
+    <DisplayCards></DisplayCards>
   </>
   
 )

@@ -1,2 +1,1 @@
-created pure component  with child and parent jsx files
-task is to add see more and see less button to cards in components/axiosfecth file
+left side needs to cards and on click of the card the whole card needs to be displayed on the right side
