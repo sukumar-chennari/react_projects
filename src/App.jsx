@@ -2,18 +2,11 @@
 
 //import { CustomButton } from '@Button'
 import './App.css' 
-import { Counter } from './Components/hooks/counter'
-import { TodoList } from './Components/hooks/todo'
-import { ButtonStack } from './Components/hooks/btneve'
+import { Home } from './Components/practice29/home'
 const App=()=>{
 return (
   <>
-    {/* <Counter/> */}
-
-    {/* <TodoList/> */}
-
-    <ButtonStack/>
-
+    <Home/>
   </>
   
 )

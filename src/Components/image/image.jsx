@@ -17,7 +17,7 @@ const Image=()=>{
 
 export const CustomImage=(props)=>{
     
-    let {source,alternateText='image',width=200,height=200}=props
+    let {source,alternateText='image',width=100,height=100}=props
     return (
         <img src={source} alt={alternateText} width={width} height={height}/>
     )
