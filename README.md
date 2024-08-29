@@ -1,4 +1,1 @@
-Hooks tasks in folder components/hooks
-created counter
-todo list to add,delete and update the cards
-display the even/odd button on click 
+create uncontrolled login form and fetch data and display in table and add delete buttons to remove user 
