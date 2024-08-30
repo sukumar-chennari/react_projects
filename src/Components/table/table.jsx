@@ -2,10 +2,9 @@ import Table from "react-bootstrap/Table";
 import { CustomImage } from "../image/image";
 
 export function CustomeTable({ data = [] }) {
-  //console.log('th',th)
-  //console.log('data',data)
+  
   const size=Object.keys(data[0])
-  console.log(size)
+  
   return (
     <Table striped bordered hover style={{marginTop:'0px',  padding:'10px',backgroundColor:'red'}}> 
       <thead >
