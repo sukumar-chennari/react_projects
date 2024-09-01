@@ -1,0 +1,81 @@
+{
+  "complaints": [
+    {
+      "id": "d69a",
+      "username": "sukumar",
+      "Number": "9502424560",
+      "Model": "Samsung galaxy j7",
+      "Issue": "Display"
+    },
+    {
+      "id": "02aa",
+      "username": "sukumar",
+      "Number": "9502424560",
+      "Model": "Samsung galaxy j7",
+      "Issue": ""
+    },
+    {
+      "id": "2efb",
+      "username": "sukumar",
+      "Number": "9502424560",
+      "Model": "Samsung galaxy j7",
+      "Issue": "Error"
+    },
+    {
+      "id": "bef1",
+      "username": "sukumar",
+      "Number": "9502424560",
+      "Model": "Samsung galaxy j7",
+      "Issue": "Display"
+    },
+    {
+      "id": "aa58",
+      "username": "sukumar",
+      "Number": "9502424560",
+      "Model": "Samsung galaxy j7",
+      "Issue": "issue"
+    },
+    {
+      "id": "4927",
+      "username": "sukumar",
+      "Number": "9502424560",
+      "Model": "Samsung galaxy j7",
+      "Issue": "Nothing"
+    },
+    {
+      "id": "237c",
+      "username": "sukumar",
+      "Number": "9502424560",
+      "Model": "Samsung galaxy j7",
+      "Issue": "Root"
+    },
+    {
+      "id": "db93",
+      "username": "umesh",
+      "Number": "9502424560",
+      "Model": "Samsung galaxy j7",
+      "Issue": "Nothing"
+    },
+    {
+      "id": "db18",
+      "username": "umesh",
+      "Number": "9502424560",
+      "Model": "Samsung j7 pro",
+      "Issue": "Nothing"
+    },
+    {
+      "id": "aae7",
+      "username": "sukumar",
+      "Number": "9502424560",
+      "Model": "Samsung galaxy j7",
+      "Issue": "root1"
+    },
+    {
+      "id": "2794",
+      "username": "umesh",
+      "Number": "6502424560",
+      "Model": "Samsung galaxy j7",
+      "Issue": "Nothing"
+    }
+  ]
+}

@@ -2,13 +2,12 @@
 
 //import { CustomButton } from '@Button'
 import './App.css' 
-import { RefHook } from './Components/hooks/useRef/useref'
-import { Form } from './Components/hooks/uncontrolled/form'
+import { ControlledForm } from './Components/hooks/controlled/controlled'
+
 const App=()=>{
 return (
   <>
-    <Form/>
-    {/* <RefHook/> */}
+   <ControlledForm/>
   </>
   
 )
