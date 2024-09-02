@@ -305,7 +305,7 @@ const countryStateData = {
     return (
     <>
      { !flag? (
-         <form onSubmit={submitHandler} style={{width:'50%',padding:'20px', border:'2px solid gray'}}>
+         <form onSubmit={submitHandler} style={{width:'50%', marginLeft:'25%', marginTop:'10px', padding:'10px', border:'2px solid gray'}}>
          <div className="form-group">
            <label htmlFor="username">Username</label>
            <input
