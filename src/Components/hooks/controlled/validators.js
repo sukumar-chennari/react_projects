@@ -1,3 +1,5 @@
+import { mobileNumber } from "./regex";
+
 export const usernameValidator = (value) => {
     if (!value) {
         return 'Please enter your name';
@@ -16,3 +18,24 @@ export const mobileValidator = (num) => {
     }
     return '';
 };
+
+export const singleValidator=(value)=>{
+    let errorObj={
+        usernameErr:'',
+        mobileNumberErr:''
+    }
+console.log(value.username.length, 'value.username.length')
+    if(value.username.length==0){
+        errorObj.usernameErr="Username can't be zero characters"
+    }else if(value.username.length>25){
+        errorObj.usernameErr="Username can't be more that 25 characters"
+    }
+
+    if(value.mobileNumber.length==0){
+        errorObj.mobileNumberErr="mobile number can't be zero in length"
+    }else if(!mobileNumber.test(value.mobileNumber)){
+        errorObj.mobileNumberErr="please enter valid mobile number"
+    }
+
+return errorObj
+}

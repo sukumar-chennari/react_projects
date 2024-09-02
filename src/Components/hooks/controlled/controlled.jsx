@@ -1,136 +1,68 @@
 import { useState } from "react";
-import './validators.js'
-import { mobileValidator, usernameValidator } from "./validators.js";
-import CustomTable from "./table.jsx";
-import axios from "axios";
+import { singleValidator } from "./validators.js";
 
 export const ControlledForm = () => {
-    const [username,setUsername]=useState('')
-    const [nameError,setNameError]=useState('')
-
-    const [model,setModel]=useState('Samsung galaxy j7')
-    const [issue,setIssue]=useState('')
-
-    const [number,setNumber]=useState('')
-    const [numberError,setMobileError]=useState('')
-    const [flag,setFlag]=useState(false)
-
-    const [allUserData,setAllUserData]=useState([])
-
-    const [dataFromChild,setDataFromChild]=useState('')
-
-    const usernameHandler=(event)=>{
-        let {value}=event.target
-        
-        setUsername(value )
-      const usernameError=usernameValidator(value)
-      
-      if(usernameError){
-        setNameError(usernameError)
-      }
-      else{
-        setNameError('')
-      }
-
+    let intialData={
+      username:'',
+      mobileNumber:'',
+      mobileModel:'Galaxy j7',
+      issue:''
     }
+  const [flag,setFlag]=useState(false)
+  const [formData,setFormData]=useState(intialData)
+  const [formError,setFormError]=useState({
+    nameErr:'',
+    mobileErr:'',
 
-    const selectHandler=(event)=>{
-        setModel(event.target.value)
-    }
+  })
 
-    const mobileHandler=(event)=>{
-        let {value}=event.target
-        
-        setNumber(value)
-        const numError=mobileValidator(value)
-        
-        if(numError){
-            
-            setMobileError(numError)
-        }
-        else{
-            setMobileError('')
-        }
-    }
+  const onChangeHandler=(event)=>{
+    const {name,value}=event.target
     
-    const issueHandler=(event)=>{
-        
-        setIssue(event.target.value)
+    setFormData({...formData,[name]:value})
+    const errorObj=singleValidator(formData)
+    if(Object.keys(errorObj).length>0){
+      const {usernameErr,mobileNumberErr}=errorObj
+      let obj={
+        nameErr:usernameErr,
+        mobileErr:mobileNumberErr
+      }
+      setFormError(obj)
     }
+    console.log(formError)
+  }
 
     const submitHandler=(event)=>{
-        event.preventDefault()
-        if(nameError || numberError){
-            alert('Enter the valid details')
-        }else{
-            //hit the server
-            if(username.length==0 || number.length==0 )
-              alert("Enter the form details")
-            else{
-              setFlag(true)
-              let obj={
-                "username":username,
-                "Number":number,
-                "Model":model,
-                'Issue':issue
-              }
+      event.preventDefault()
+      const {username,mobileNumber}=formData
+      if(username.length ==0 || mobileNumber.length==0)
+          alert('Please fill the form ') 
+        
+      setFlag(true)
+        // event.preventDefault()
+        // if(nameError || numberError){
+        //     alert('Enter the valid details')
+        // }else{
+        //     //hit the server
+        //     if(username.length==0 || number.length==0 )
+        //       alert("Enter the form details")
+        //     else{
+        //       setFlag(true)
+        //       let obj={
+        //         "username":username,
+        //         "Number":number,
+        //         "Model":model,
+        //         'Issue':issue
+        //       }
              
-              postData(obj)
-            }
+        //       postData(obj)
+        //     }
            
-        }
+        // }
     }   
 
-    const fetchData=async ()=>{
-      try{
-        const response = await axios.get("http://localhost:3000/complaints");
-        const data = response.data;
-        setAllUserData(data); // Set the fetched data directly
-        
-      }
-      catch(err){
-        
-      }
-    }
-    const postData=async (userData)=>{
-      try{
-        let {data}=await axios.post('http://localhost:3000/complaints',userData)
-        fetchData()
-        setUsername('');
-        setModel('Samsung galaxy j7');
-        setIssue('');
-        setNumber('');
-        setFlag(false);
-      }
-      catch(err){
-        
-      }
-    }
-    const deleteApiData=async (id)=>{
-      try{
-        let {data}=await axios.delete('http://localhost:3000/complaints/'+id)
-        console.log(data)
-        fetchData()
-      }
-      catch(err){
-        console.log(err)
-      }
-    }
-    const handleDataFromChild=(id)=>{
-      setDataFromChild(id)
 
-      deleteApiData(id)
-
-      // if(id){
-        
-
-      //   let updatedUsers=allUserData.filter(each=>{return each.id !==id})
-
-      //    setAllUserData(updatedUsers )
-      // }
-
-
-    }
+ 
     return (
     <>
      { !flag? (
@@ -140,29 +72,31 @@ export const ControlledForm = () => {
            <input
              type="text"
              className="form-control"
+             name="username"
              id="username"
              placeholder="name"
-             value={username}
-             onChange={usernameHandler}
+             value={formData.username}
+             onChange={onChangeHandler}
            />
-            {nameError &&  <span style={{color:'red'}}>{nameError}</span>}
+            {formError.nameErr &&  <span style={{color:'red'}}>{formError.nameErr}</span>}
          </div>
          <div className="form-group">
-           <label htmlFor="mobile">Mobile</label>
+           <label htmlFor="mobile">Mobile Number</label>
            <input
              type="text"
              className="form-control"
              id="username"
-             placeholder="name"
-             value={number}
-             onChange={mobileHandler}
+             placeholder="Mobile number"
+             name="mobileNumber"
+             value={formData.mobileNumber}
+             onChange={onChangeHandler}
            />
-           {numberError&&  <span style={{color:'red'}}>{numberError}</span>}
+           {formError.mobileErr&&  <span style={{color:'red'}}>{formError.mobileErr}</span>}
          </div>
  
          <div className="form-group">
            <label htmlFor="exampleFormControlSelect1">Select Model</label>
-           <select onChange={selectHandler} className="form-control" id="exampleFormControlSelect1" value={model}>
+           <select onChange={onChangeHandler} className="form-control" id="exampleFormControlSelect1" name="mobileModel" value={formData.mobileModel}>
              <option>Samsung galaxy j7</option>
              <option>Samsung j7 pro</option>
              <option>Samsung galaxy s24 ultra </option>
@@ -177,9 +111,9 @@ export const ControlledForm = () => {
              className="form-control"
              id="exampleFormControlTextarea1"
              rows={3}
-             
-             value={issue}
-             onChange={issueHandler}
+             name="issue"
+             value={formData.issue}
+             onChange={onChangeHandler}
            />
          </div>
          <button  className="btn btn-primary">Submit</button>
@@ -190,7 +124,7 @@ export const ControlledForm = () => {
         </div>
     )}
 
-      <CustomTable data={allUserData}  sendDataToParent={handleDataFromChild}/>
+      {/* <CustomTable data={allUserData}  sendDataToParent={handleDataFromChild}/> */}
     </>
   );
 };
