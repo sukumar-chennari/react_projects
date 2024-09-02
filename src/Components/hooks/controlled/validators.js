@@ -24,7 +24,7 @@ export const singleValidator=(value)=>{
         usernameErr:'',
         mobileNumberErr:''
     }
-console.log(value.username.length, 'value.username.length')
+
     if(value.username.length==0){
         errorObj.usernameErr="Username can't be zero characters"
     }else if(value.username.length>25){
