@@ -33,13 +33,13 @@ export const UseEffectExample=()=>{
 
     return(
         <>
-        <h1>UseEffect Example</h1>
+        {/* <h1>UseEffect Example</h1>
         <h2>{`Count ${count}`}</h2>
         {
            <div>
             <button onClick={incrementHandler}>Increment</button>
            </div> 
-        }
+        } */}
         {
             ['products','carts','users'].map((type,i)=>{
                 return (<button key={i} onClick={()=>{buttonHandler(type)}}>{type}</button>)
