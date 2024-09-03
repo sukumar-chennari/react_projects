@@ -43,20 +43,6 @@
       "Issue": "Nothing"
     },
     {
-      "id": "237c",
-      "username": "sukumar",
-      "Number": "9502424560",
-      "Model": "Samsung galaxy j7",
-      "Issue": "Root"
-    },
-    {
-      "id": "db93",
-      "username": "umesh",
-      "Number": "9502424560",
-      "Model": "Samsung galaxy j7",
-      "Issue": "Nothing"
-    },
-    {
       "id": "db18",
       "username": "umesh",
       "Number": "9502424560",
@@ -64,18 +50,53 @@
       "Issue": "Nothing"
     },
     {
-      "id": "aae7",
+      "id": "d286",
       "username": "sukumar",
       "Number": "9502424560",
       "Model": "Samsung galaxy j7",
-      "Issue": "root1"
+      "Issue": "Display"
     },
     {
-      "id": "2794",
-      "username": "umesh",
-      "Number": "6502424560",
+      "id": "ed2d",
+      "username": "sukumar",
+      "Number": "9502424560",
       "Model": "Samsung galaxy j7",
+      "Issue": "Display"
+    },
+    {
+      "id": "ad86",
+      "username": "sukumar",
+      "Number": "9502424560",
+      "Model": "Samsung galaxy j7",
+      "Issue": "Display"
+    },
+    {
+      "id": "e4e3",
+      "username": "sukumar",
+      "Number": "9502424560",
+      "Model": "Samsung Duos",
+      "Issue": "DIsplay"
+    },
+    {
+      "id": "6450",
+      "username": "sukumar",
+      "Number": "8502424560",
+      "Model": "Samsung Duos",
       "Issue": "Nothing"
+    },
+    {
+      "id": "a779",
+      "username": "sukumar",
+      "Number": "9502424560",
+      "Model": "Samsung galaxy j7",
+      "Issue": "Display"
+    },
+    {
+      "id": "b071",
+      "username": "sukumar",
+      "Number": "9502424560",
+      "Model": "Samsung galaxy j7",
+      "Issue": "Display"
     }
   ]
 }

@@ -1,12 +1,13 @@
 import Table from 'react-bootstrap/Table';
+import { GrDocumentUpdate } from "react-icons/gr";
 
-function CustomTable({ data = [], sendDataToParent }) {
-  const sendData = (id) => {
-    sendDataToParent(id);  // Pass the correct ID to the parent component
+function CustomTable({ data = [], sendDataToParent , bgColor=''}) {
+  const sendData = (id,buttonText) => {
+    sendDataToParent(id,buttonText);  // Pass the correct ID to the parent component
   };
 
   return (
-    <Table striped bordered hover variant="dark">
+    <Table  style={{backgroundColor:(bgColor)?(bgColor):('white')}} striped bordered hover >
       <thead>
         <tr>
           <th>Id</th>
@@ -14,7 +15,8 @@ function CustomTable({ data = [], sendDataToParent }) {
           <th>Number</th>
           <th>Model</th>
           <th>Issue</th>
-          <th>Actions</th>
+          <th>Delete User</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
@@ -26,7 +28,10 @@ function CustomTable({ data = [], sendDataToParent }) {
             <td>{eachUser.Model}</td>
             <td>{eachUser.Issue || 'No issue reported'}</td>
             <td>
-              <button onClick={() => sendData(eachUser.id)}>Delete</button>
+              <button onClick={() => sendData(eachUser.id,'delete')}>Delete</button>
+            </td>
+            <td>
+              <button onClick={() => sendData(eachUser.id,'edit')}><GrDocumentUpdate /></button>
             </td>
           </tr>
         ))}

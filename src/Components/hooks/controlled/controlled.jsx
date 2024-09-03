@@ -2,7 +2,7 @@ import { useState } from "react";
 import './validators.js'
 import { mobileValidator, usernameValidator } from "./validators.js";
 import CustomTable from "./table.jsx";
-import axios from "axios";
+import axios, { all } from "axios";
 
 export const ControlledForm = () => {
     const [username,setUsername]=useState('')
@@ -18,6 +18,8 @@ export const ControlledForm = () => {
     const [allUserData,setAllUserData]=useState([])
 
     const [dataFromChild,setDataFromChild]=useState('')
+    const [editUserId,setEditUserId]=useState(null)
+    const [backgroundColor,setBackgroundColor]=useState('')
 
     const usernameHandler=(event)=>{
         let {value}=event.target
@@ -67,15 +69,24 @@ export const ControlledForm = () => {
             if(username.length==0 || number.length==0 )
               alert("Enter the form details")
             else{
-              setFlag(true)
+              
               let obj={
                 "username":username,
                 "Number":number,
                 "Model":model,
                 'Issue':issue
               }
+
+              if(editUserId){
+                updateData(obj)
+                setBackgroundColor('green')
+
+              }else{
+                postData(obj)
+              }
              
-              postData(obj)
+              setFlag(true)
+             
             }
            
         }
@@ -89,7 +100,7 @@ export const ControlledForm = () => {
         
       }
       catch(err){
-        
+        console.log(err)
       }
     }
     const postData=async (userData)=>{
@@ -103,7 +114,7 @@ export const ControlledForm = () => {
         setFlag(false);
       }
       catch(err){
-        
+        console.log(err)
       }
     }
     const deleteApiData=async (id)=>{
@@ -116,10 +127,51 @@ export const ControlledForm = () => {
         console.log(err)
       }
     }
-    const handleDataFromChild=(id)=>{
+
+    const updateData=async(userData)=>{
+      try{
+        let {data}= await axios.patch(`http://localhost:3000/complaints/${editUserId}`,userData)
+        fetchData()
+        resetForm()
+      }
+      catch(err){
+        console.log(err)
+      }
+    }
+
+    const updateUser=(id,buttonText)=>{
+      if(buttonText=='delete'){
+        deleteApiData(id)
+      }else if (buttonText=='edit'){
+        const userToEdit = allUserData.find(user => user.id === id)
+
+        setUsername(userToEdit.username);
+        setModel(userToEdit.Model);
+        setIssue(userToEdit.Issue);
+        setNumber(userToEdit.Number);
+        setEditUserId(id); // Set the id for editing
+
+        setFlag(false);
+      }
+    }
+
+    const resetForm = () => {
+      setUsername('');
+      setModel('Samsung galaxy j7');
+      setIssue('');
+      setNumber('');
+      setEditUserId(null); // Clear the editUserId
+      setFlag(false); // Reset flag to allow form resubmission
+  };
+
+    const handleDataFromChild=(id,buttonText)=>{
       setDataFromChild(id)
 
-      deleteApiData(id)
+      if(buttonText==='delete')
+        deleteApiData(id)
+      else
+        updateUser(id)
+
 
       // if(id){
         
@@ -133,7 +185,7 @@ export const ControlledForm = () => {
     }
     return (
     <>
-     { !flag? (
+     { (!flag)? (
          <form onSubmit={submitHandler} style={{width:'50%',padding:'20px', border:'2px solid gray'}}>
          <div className="form-group">
            <label htmlFor="username">Username</label>
@@ -190,7 +242,7 @@ export const ControlledForm = () => {
         </div>
     )}
 
-      <CustomTable data={allUserData}  sendDataToParent={handleDataFromChild}/>
+      <CustomTable data={allUserData}  bgColor={backgroundColor} sendDataToParent={handleDataFromChild}/>
     </>
   );
 };
