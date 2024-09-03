@@ -7,8 +7,8 @@ import { UseEffectEx2 } from './Components/hooks/useeffect/useeffectEx2'
 const App=()=>{
 return (
   <>
-  <UseEffectEx2/>
-   {/* <UseEffectExample/> */}
+  {/* <UseEffectEx2/> */}
+   <UseEffectExample/>
   </>
   
 )

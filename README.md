@@ -1,2 +1,2 @@
-create controlled  form using single state and on successful login the one successful message will be displayed
-Added the country selection and based on that state needs to be updated 
+praticed with useEffect and after the created the table to show the data as per the buttons selected by the user 
+hooks/useEffect/useeffect.jsx 

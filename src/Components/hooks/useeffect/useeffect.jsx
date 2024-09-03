@@ -1,5 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
+import { MyTable } from "./table"
 
 export const UseEffectExample=()=>{
    
@@ -10,10 +11,10 @@ export const UseEffectExample=()=>{
     useEffect(()=>{
         console.log('rendering 1 time')
         document.title=`Current age ${count}`
-        fecthData(type)
-    },[count,allData])
+        fecthData()
+    },[count,type])
 
-    const fecthData=async (type)=>{
+    const fecthData=async ()=>{
         try{
             let {data}=await axios.get(`https://fakestoreapi.com/${type}`)
             setAllData(data)
@@ -28,6 +29,8 @@ export const UseEffectExample=()=>{
     const buttonHandler=(type)=>{
        setType(type)
     }
+   
+
     return(
         <>
         <h1>UseEffect Example</h1>
@@ -42,8 +45,13 @@ export const UseEffectExample=()=>{
                 return (<button key={i} onClick={()=>{buttonHandler(type)}}>{type}</button>)
             })
         }
-        {
-            <p>{JSON.stringify(allData)}</p>
+       
+       
+    
+        { allData.length>0 && (<>
+            <MyTable headings={Object.keys(allData[0])} data={allData} />
+            </>)
+  
         }
         </>
         
