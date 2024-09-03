@@ -2,12 +2,13 @@
 
 //import { CustomButton } from '@Button'
 import './App.css' 
-import { ControlledForm } from './Components/hooks/controlled/controlled'
-
+import { UseEffectExample } from './Components/hooks/useeffect/useeffect'
+import { UseEffectEx2 } from './Components/hooks/useeffect/useeffectEx2'
 const App=()=>{
 return (
   <>
-   <ControlledForm/>
+  <UseEffectEx2/>
+   {/* <UseEffectExample/> */}
   </>
   
 )
