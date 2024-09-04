@@ -1,0 +1,11 @@
+.navLink{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-size: x-large;
+}
+
+.navLink a{
+    color: orange;
+    text-decoration: none;
+}
