@@ -28,13 +28,16 @@ const Navbar = () => {
                 <NavLink className="liStyle" to={"/about"}>About</NavLink>
               </li>
 
-              <li className="nav-item li">
+              {/* <li className="nav-item li">
                 <NavLink className="liStyle" to={"/settings"}>Settings</NavLink>
-              </li>
+              </li> */}
 
               <li className="nav-item li">
                 <NavLink className="liStyle" to={"/contact-us"}>Contact</NavLink>
-                
+              </li>
+
+              <li className="nav-item li">
+                <NavLink className="liStyle" to={"/categories"}>Categories</NavLink>
               </li>
              
             </ul>
