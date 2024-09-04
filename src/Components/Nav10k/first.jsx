@@ -1,42 +1,42 @@
-import { NavLink, Outlet } from "react-router-dom";
-import { CustomImage } from "../image/image"
-import { IoHomeOutline,IoSettingsOutline } from "react-icons/io5";
-import { FcAbout } from "react-icons/fc";
-import { RiContactsLine } from "react-icons/ri";
+import { CustomImage } from "../image/image";
+import { IoHomeOutline } from "react-icons/io5";
 import { NavStack } from "./navStack";
+import { NavLink, Outlet } from "react-router-dom";
+import { Navbar } from "../navbar/navbar";
+export const FirstScreen=()=>{
+   
+        return (
+            <>
+               
+                <div style={{ width: '100%', display: 'flex' , }}>
+                    <div style={{ width: '200px', height: '99vh', border: '2px solid', borderTopRightRadius: '8%' }}>
+                        <CustomImage width={150} height={150} source={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd2HQ4Dg-lKpde8spteOVR5YuAuQDhhrQlsA&s'} />
+                       
+                        <div  style={{ display: 'flex', alignItems: 'center', marginTop: '20px' }}>
+                            <IoHomeOutline style={{ marginRight: '10px' }} />
+                             <NavLink to="/home" style={{ textDecoration: 'none', color: 'black' }}>Home</NavLink> 
+                        </div>
+                        <div style={{ display: 'flex', alignItems: 'center', marginTop: '20px' }}>
+                            <IoHomeOutline style={{ marginRight: '10px' }} />
+                             <NavLink to="/about" style={{ textDecoration: 'none', color: 'black' }}>About</NavLink> 
+                        </div>
 
-import './navlink.css'
+                        <div style={{ display: 'flex', alignItems: 'center', marginTop: '20px' }}>
+                            <IoHomeOutline style={{ marginRight: '10px' }} />
+                             <NavLink to="/settings" style={{ textDecoration: 'none', color: 'black' }}>Settings</NavLink> 
+                        </div>
 
-const First=()=>{
-    return (
-        <>
-        
-        <div style={{width:'100%', display:'flex'}}>
-            <div style={{width:'200px', paddingLeft:'5px', height:'100vh', border:'2px solid', borderTopRightRadius:'8%', display:'flex', flexDirection:'column' , justifyContent:'space-evenly'}}>
-                <CustomImage width={150} height={150} source={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd2HQ4Dg-lKpde8spteOVR5YuAuQDhhrQlsA&s'}/>
-                <div className="navLink">
-                    <IoHomeOutline />
-                    <NavLink to={"/"}></NavLink>
-                    <a href="">Home</a>
+                        <div style={{ display: 'flex', alignItems: 'center', marginTop: '20px' }}>
+                            <IoHomeOutline style={{ marginRight: '10px' }} />
+                             <NavLink to="/contact-us" style={{ textDecoration: 'none', color: 'black'  }}>Contact</NavLink> 
+                        </div>
+                    </div>
+                    <div style={{ flexGrow: 1, border:'1px solid gray' , }}>
+                        <Outlet/>
+                        {/* Main content goes here */}
+                    </div>
                 </div>
-                <div className="navLink">
-                    <FcAbout />
-                    <a href="">About</a>
-                </div >
-                <div className="navLink">
-                    <IoSettingsOutline />
-                    <a href="">Settings</a>
-                </div>
+            </>
+        );
 
-                <div className="navLink">
-                    <RiContactsLine />
-                    <a href="">Contact</a>
-                </div>
-            </div>
-            <div> <Outlet/></div>
-        </div>
-        </>
-    )
 }
-
-export {First}
