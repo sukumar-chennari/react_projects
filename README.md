@@ -1,2 +1,2 @@
-create controlled  form and fetch data and display in table and add delete buttons to remove user 
-hooks/controlled
+created a div show a popup to get details and after submitting it will show in the table 
+folder- loginDetails/logindetails.jsx
