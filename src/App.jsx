@@ -2,12 +2,13 @@
 
 //import { CustomButton } from '@Button'
 import './App.css' 
-import { ControlledForm } from './Components/hooks/controlled/controlled'
+import { ShowLoginDetails } from './Components/loginDetails/logindetails'
+
 
 const App=()=>{
 return (
   <>
-   <ControlledForm/>
+    <ShowLoginDetails/>
   </>
   
 )
