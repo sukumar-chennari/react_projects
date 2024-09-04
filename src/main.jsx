@@ -8,8 +8,6 @@ import { NavStack } from './Components/nav10k/navStack.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    {/* <NavigatorStack/>  */}
-    <NavStack/>
-   
+    <App/>
   </StrictMode>,
 )
