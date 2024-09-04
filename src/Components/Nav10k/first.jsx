@@ -1,8 +1,7 @@
 import { CustomImage } from "../image/image";
 import { IoHomeOutline } from "react-icons/io5";
-import { NavStack } from "./navStack";
 import { NavLink, Outlet } from "react-router-dom";
-import { Navbar } from "../navbar/navbar";
+
 export const FirstScreen=()=>{
    
         return (
