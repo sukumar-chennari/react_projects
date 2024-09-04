@@ -1,9 +1,9 @@
 import { useState } from "react"
 import { Modal } from "./modal"
 import { CustomImage } from "../image/image";
-import { IoHomeOutline } from "react-icons/io5";
+
 import CustomTable from "./table";
-import { all } from "axios";
+
 
 export const ShowLoginDetails=()=>{
     const [modal,setModal]=useState(false)
