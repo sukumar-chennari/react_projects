@@ -1,9 +1,6 @@
 
-
-//import { CustomButton } from '@Button'
-
 import './App.css' 
-import { NavStack } from './Components/nav10k/navStack'
+import { NavStack } from './Components/nav10k/navStack.jsx'
 
 const App=()=>{
 return (
