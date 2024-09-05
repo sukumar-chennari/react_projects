@@ -13,7 +13,7 @@ function CustomCard({ data }) {
             Some quick example text to build on the card title and make up the
             bulk of the card's content.
           </Card.Text>
-          <Button variant="primary"> <Link to={`${data.id}`}>See More</Link> </Button>
+          <Button variant="success"> <Link to={`/products/${data.id}`} style={{color:'black' , textDecoration:'none'}}>See More</Link> </Button>
         </Card.Body>
       </Card>
       )

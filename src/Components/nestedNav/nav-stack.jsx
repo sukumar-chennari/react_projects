@@ -20,7 +20,7 @@ export const NavStackNested=()=>{
                     <Route path="electronics" element={<ElectronicsScreen/>}/>
                 </Route>
 
-                <Route path=':productId' element={<ProductDetailScreen/>}></Route>
+                <Route path='products/:productId' element={<ProductDetailScreen/>}></Route>
             </Routes>
         </BrowserRouter>
     )
