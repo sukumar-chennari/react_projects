@@ -1,9 +1,14 @@
 import { Link, NavLink } from "react-router-dom";
 import "./navCss.css"
+import { useContext } from "react";
+import { UserDetails } from "../nestedNav/nav-stack";
 const Navbar = () => {
+  const {darkTheme}=useContext(UserDetails)
+console.log('dark theme', darkTheme)
   return (
+
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className={`navbar navbar-expand-lg navbar-light bg-${darkTheme?'dark':'light'}`} >
         <div className="container-fluid">
           
           <button
@@ -28,9 +33,6 @@ const Navbar = () => {
                 <NavLink className="liStyle" to={"/about"}>About</NavLink>
               </li>
 
-              {/* <li className="nav-item li">
-                <NavLink className="liStyle" to={"/settings"}>Settings</NavLink>
-              </li> */}
 
               <li className="nav-item li">
                 <NavLink className="liStyle" to={"/contact-us"}>Contact</NavLink>
@@ -38,6 +40,10 @@ const Navbar = () => {
 
               <li className="nav-item li">
                 <NavLink className="liStyle" to={"/categories"}>Categories</NavLink>
+              </li>
+
+              <li className="nav-item li">
+                <NavLink className="liStyle" to={"/settings"}>Settings</NavLink>
               </li>
              
             </ul>

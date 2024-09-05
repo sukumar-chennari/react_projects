@@ -5,7 +5,7 @@ import { NavStack } from './Components/Nav10k/navStack.jsx'
 const App=()=>{
 return (
   <>
-  <NavStack/>
+  {/* <NavStack/> */}
   </>
   
 )

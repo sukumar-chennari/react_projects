@@ -1,8 +1,10 @@
 import axios from "axios"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import CustomCard from "./card"
+import { UserDetails } from "./nav-stack"
 
 export const ElectronicsScreen=()=>{
+
     useEffect(()=>{
         fetchData()
     },[])
@@ -20,7 +22,9 @@ export const ElectronicsScreen=()=>{
         }
     }
     return(
-        <div style={{display:'flex', height:'200px', flexWrap:'wrap'}}>
+        <>
+           
+             <div style={{display:'flex', height:'200px', flexWrap:'wrap'}}>
         {
             allData.map(each=>{
                 
@@ -30,5 +34,7 @@ export const ElectronicsScreen=()=>{
             })
         }
     </div>
+        </>
+       
     )
 }

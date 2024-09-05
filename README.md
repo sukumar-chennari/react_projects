@@ -1,4 +1,5 @@
-react-router-dom pacakage,
-worked on nested and dynamic routing 
+
+worked on state management 
 folder nestedNav/..
-filled the all sections with different pages
+created counter options to change,reset and decrement count and which potrays through all screens
+added toggle option and chage count in nestedNav/settingScreen.jsx
