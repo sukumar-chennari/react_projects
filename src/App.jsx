@@ -1,11 +1,16 @@
 
 import './App.css' 
-import { NavStack } from './Components/Nav10k/navStack.jsx'
+import { Counter } from './Components/hooks/useReducer/counter'
+import { StaticCounter } from './Components/hooks/useReducer/simpleCounter'
+import { TODO } from './Components/hooks/useReducer/todo'
 
 const App=()=>{
 return (
   <>
-  {/* <NavStack/> */}
+    <TODO/> 
+    {/* <StaticCounter></StaticCounter>
+    <Counter/> */}
+  
   </>
   
 )
