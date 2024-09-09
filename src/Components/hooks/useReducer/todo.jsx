@@ -14,6 +14,10 @@ const reducer = (state, action) => {
       return { ...state, todos: [...state.todos, action.payload] };
     case "DELETE_TODO":
         return {...state,todos:state.todos.filter((_,index)=>index!==action.payload)}
+    case 'UPDATE_DATA':
+        const updatedTodos=[...state.todos]
+        updatedTodos[action.payload.id]=action.payload.newValue
+        return {...state,todos:updatedTodos}
   }
 };
 export const TODO = () => {
@@ -27,7 +31,9 @@ export const TODO = () => {
   const [username, setUsername] = useState("");
   const [age, setAge] = useState("");
   const [enteredTodo, setEnteredTodo] = useState([]);
-  
+  const [showInput,setShowInput]=useState(false)
+  const [updateRowId,setUpdateRowId]=useState(null)
+  const [updatedData,setUpdatedData]=useState('')
 
   const nameHandler = (e) => {
     setUsername(e.target.value);
@@ -73,6 +79,27 @@ export const TODO = () => {
         type:'DELETE_TODO',
         payload:id
     })
+  }
+
+  const updateHandler=(id)=>{
+    setShowInput(true)
+    setUpdateRowId(id)
+  }
+  const updateInputHandler=(e)=>{
+    setUpdatedData(e.target.value)
+  }
+
+  const submitUpdateHandler=(e)=>{
+    e.preventDefault()
+    if(updatedData && updateRowId!==null){
+      dispatch({
+        type:'UPDATE_DATA',
+        payload:{id:updateRowId,newValue:updatedData}
+      })
+    }
+    setShowInput(false)
+    setUpdatedData('')
+    setUpdateRowId(null)
   }
   return (
     <Fragment>
@@ -125,7 +152,14 @@ export const TODO = () => {
                         <td>{index+1}</td>
                         <td>{eachTodo}</td>
                         <td onClick={()=>{deleteHandler(index)}}><MdDeleteOutline /></td>
-                        <td onClick={()=>{}}><CiEdit /></td>
+                        <td onClick={()=>{updateHandler(index)}}><CiEdit />
+                        {showInput && updateRowId === index && (
+                  <form onSubmit={submitUpdateHandler}>
+                    <input type="text" value={updatedData} onChange={updateInputHandler} />
+                    <button type="submit">Update</button>
+                  </form>
+                )}
+                </td>
                     </tr>
                 })
             }
