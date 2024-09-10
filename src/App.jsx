@@ -1,11 +1,13 @@
 
 import './App.css' 
-import { NavigatorStack } from './Components/navigator/navigator-stack'
+import { AgeCalculator } from './Components/hooks/useMemo/useMemo'
+import { MilkCalculator } from './Components/hooks/useMemo/useMemoMilk'
 
 const App=()=>{
 return (
   <>
-    <NavigatorStack/>
+   <MilkCalculator/>
+   <AgeCalculator/>
   </>
   
 )
