@@ -3,12 +3,12 @@ import "./navCss.css"
 import { useContext } from "react";
 import { UserDetails } from "../nestedNav/nav-stack";
 const Navbar = () => {
-  const {darkTheme}=useContext(UserDetails)
-console.log('dark theme', darkTheme)
+  
+
   return (
 
     <>
-      <nav className={`navbar navbar-expand-lg navbar-light bg-${darkTheme?'dark':'light'}`} >
+      <nav className={`navbar navbar-expand-lg navbar-light bg-light}`} >
         <div className="container-fluid">
           
           <button

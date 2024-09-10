@@ -4,12 +4,17 @@ import { ControlledForm } from "../hooks/controlled/controlled"
 import { Recipe } from "../axios/axiosfetch"
 import { TodoList } from "../hooks/todo"
 import GetLocation from "../location/location"
+import { createContext } from "react"
 
 
+export const UserDetails=createContext()
 
 export const NavStack=()=>{
     return(
         <>
+        <UserDetails.Provider username={{
+            username:'sukumar'
+        }}>
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<FirstScreen/>}>
@@ -21,6 +26,8 @@ export const NavStack=()=>{
                 
             </Routes>
         </BrowserRouter>
+        </UserDetails.Provider>
+       
     </>
 
         

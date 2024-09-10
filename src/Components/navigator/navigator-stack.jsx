@@ -4,10 +4,20 @@ import { AboutScreen } from "../myscreens/aboutScreen"
 import { UndefinedScreen } from "../myscreens/undefinedScreen"
 import { SettingScreen } from "../myscreens/settingScreen"
 import { ContactScreen } from "../myscreens/contactScreen"
+import { reducer,intialData} from "./helperJS"
+import { createContext, useReducer } from "react"
 
+export const CounterDetails=createContext()
 const NavigatorStack=()=>{
+    
+    const [currentState,dispatch]=useReducer(reducer,intialData)
+    
     return (
-        <BrowserRouter>
+        <CounterDetails.Provider value={{
+            currentState:currentState,
+            dispatch
+         }}>
+             <BrowserRouter >
             <Routes>
                 <Route path="/" element={<HomeScreen/>}/>   
                 <Route path="about" element={<AboutScreen/>}/> 
@@ -15,7 +25,9 @@ const NavigatorStack=()=>{
                 <Route path="/contact-us" element={<ContactScreen/>}/> 
                 <Route path="/*" element={<UndefinedScreen/>}/> 
             </Routes> 
-        </BrowserRouter>
+            </BrowserRouter>
+        </CounterDetails.Provider>
+       
     )
 }
 export {NavigatorStack}
