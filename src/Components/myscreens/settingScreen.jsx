@@ -13,8 +13,8 @@ const SettingScreen=()=>{
             <h1>Welcome to settings screen</h1>
 
             <button onClick={()=>{dispatch(IncrementAction)}}>Increment</button>
-            <button onClick={()=>{dispatch(DecrementAction)}}>Decrment</button>
-            <button onClick={()=>{dispatch(ResetAction)}}>Reset</button>
+            <button onClick={()=>{if(count>0)dispatch(DecrementAction)}}>Decrment</button>
+            <button onClick={()=>{ dispatch(ResetAction)}}>Reset</button>
 
         </>
     ) 
