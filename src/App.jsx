@@ -1,5 +1,6 @@
 
 import './App.css' 
+import { FilterMemo } from './Components/hooks/useMemo/filterMemo'
 import { AgeCalculator } from './Components/hooks/useMemo/useMemo'
 import { MilkCalculator } from './Components/hooks/useMemo/useMemoMilk'
 
@@ -8,6 +9,7 @@ return (
   <>
    <MilkCalculator/>
    <AgeCalculator/>
+   <FilterMemo/>
   </>
   
 )
