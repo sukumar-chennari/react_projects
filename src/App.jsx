@@ -1,12 +1,20 @@
 
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css' 
-import { Counter } from './Components/customHooks/counter'
+import { TodoForm } from './Components/crudFrom/todoForm'
+import { CompletedTasks } from './Components/crudFrom/completedTask'
 
 
 const App=()=>{
 return (
   <>
-   <Counter/>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<TodoForm />} />
+        <Route path="/completed" element={<CompletedTasks />} />
+      </Routes>
+    </BrowserRouter>
+
   </>
   
 )
